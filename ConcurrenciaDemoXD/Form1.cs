@@ -24,6 +24,10 @@ namespace ConcurrenciaDemoXD
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            if (completed)
+            {
+                completed = false;
+            }
             Thread t1 = new Thread(new ThreadStart(
                 FillProgressBar
             ));
@@ -61,6 +65,11 @@ namespace ConcurrenciaDemoXD
         {
             pgbStatus.Value = value;
 
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            completed = true;
         }
     }
 }
