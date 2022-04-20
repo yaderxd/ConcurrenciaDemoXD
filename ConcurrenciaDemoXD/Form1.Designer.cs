@@ -29,40 +29,41 @@ namespace ConcurrenciaDemoXD
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pgbStatus = new System.Windows.Forms.ProgressBar();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnStart
             // 
-            this.button1.Location = new System.Drawing.Point(27, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnStart.Location = new System.Drawing.Point(24, 105);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // button2
+            // btnPause
             // 
-            this.button2.Location = new System.Drawing.Point(139, 47);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPause.Location = new System.Drawing.Point(126, 105);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(75, 23);
+            this.btnPause.TabIndex = 1;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnStop
             // 
-            this.button3.Location = new System.Drawing.Point(234, 47);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnStop.Location = new System.Drawing.Point(225, 105);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(75, 23);
+            this.btnStop.TabIndex = 2;
+            this.btnStop.Text = "Stop";
+            this.btnStop.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel1
             // 
@@ -76,7 +77,7 @@ namespace ConcurrenciaDemoXD
             // 
             this.pgbStatus.Location = new System.Drawing.Point(3, 3);
             this.pgbStatus.Name = "pgbStatus";
-            this.pgbStatus.Size = new System.Drawing.Size(100, 23);
+            this.pgbStatus.Size = new System.Drawing.Size(835, 23);
             this.pgbStatus.TabIndex = 0;
             // 
             // Form1
@@ -85,11 +86,12 @@ namespace ConcurrenciaDemoXD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(862, 188);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnStop);
+            this.Controls.Add(this.btnPause);
+            this.Controls.Add(this.btnStart);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -97,9 +99,9 @@ namespace ConcurrenciaDemoXD
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ProgressBar pgbStatus;
     }

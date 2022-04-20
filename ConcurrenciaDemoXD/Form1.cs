@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,25 @@ namespace ConcurrenciaDemoXD
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            FillProgessBar();
+        }
+
+        public void FillProgessBar()
+        {
+            for(int i = 0; i <= 100; i++)
+            {
+                pgbStatus.Value = i;
+                Thread.Sleep(500);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
