@@ -13,6 +13,10 @@ namespace ConcurrenciaDemoXD
 {
     public partial class Form1 : Form
     {
+        private delegate void SetProgressBarValueEvent(int value);
+        private bool completed = false;
+        private int i = 1;
+
         public Form1()
         {
             InitializeComponent();
@@ -20,20 +24,42 @@ namespace ConcurrenciaDemoXD
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            FillProgessBar();
+            Thread t1 = new Thread(new ThreadStart(
+                FillProgressBar
+            ));
+
+            t1.Start();
         }
 
-        public void FillProgessBar()
+        public void FillProgressBar()
         {
-            for(int i = 0; i <= 100; i++)
+            while (!completed && i <= 100)
             {
-                pgbStatus.Value = i;
+                RequiredInvoke(i++);
                 Thread.Sleep(500);
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+        }
+        public void RequiredInvoke(int value)
+        {
+            if (pgbStatus.InvokeRequired)
+            {
+                SetProgressBarValueEvent progressBarValueEvent = new SetProgressBarValueEvent(SetProgressBarValue);
+                BeginInvoke(progressBarValueEvent, new object[] { value });
+            }
+            else
+            {
+                SetProgressBarValue(value);
+            }
+        }
+
+        public void SetProgressBarValue(int value)
+        {
+            pgbStatus.Value = value;
 
         }
     }
